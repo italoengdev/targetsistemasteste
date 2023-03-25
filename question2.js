@@ -1,29 +1,17 @@
-// solicita um número ao usuário
-const numero = parseInt(prompt("Digite um número:"));
-
-// inicializa as variáveis de início da sequência
-let a = 0;
-let b = 1;
-
-// variável de controle para verificar se o número pertence à sequência
-let encontrado = false;
-
-// verifica se o número pertence à sequência
-while (b <= numero) {
-  if (b === numero) {
-    encontrado = true;
-    break;
+function fibonacciSequence(number) {
+  let fibonacci = [0, 1]
+  let nextNumber = 1
+  while (nextNumber <= number) {
+    nextNumber =
+      fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2]
+    fibonacci.push(nextNumber)
   }
-
-  // atualiza os valores de a e b para o próximo número na sequência
-  const proximo = a + b;
-  a = b;
-  b = proximo;
+  if (fibonacci.includes(number)) {
+    console.log(number + ' pertence à sequência de Fibonacci.')
+  } else {
+    console.log(number + ' não pertence à sequência de Fibonacci.')
+  }
 }
 
-// exibe a mensagem informando se o número pertence ou não à sequência
-if (encontrado) {
-  console.log(`${numero} pertence à sequência de Fibonacci.`);
-} else {
-  console.log(`${numero} não pertence à sequência de Fibonacci.`);
-}
+fibonacciSequence(21)
+fibonacciSequence(25)
